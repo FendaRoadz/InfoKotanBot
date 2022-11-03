@@ -3,7 +3,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 butt_cancel = KeyboardButton("🔇CANCEL🔇")
 
 def get_main_kb():
-    butt_start = KeyboardButton("START")
+    butt_start = KeyboardButton("COMING SOON")
     butt_info = KeyboardButton("INFO")
     butt_media = KeyboardButton("MEDIA")
     main_kb = ReplyKeyboardMarkup(resize_keyboard=True)
@@ -19,7 +19,7 @@ def get_genre_kb():
     return genre_kb
 
 def get_metal_songs():
-    butt_meshuggah = ("🤘MESHUGGAH 🤘")
+    butt_meshuggah = ("🤘MESHUGGAH🤘")
     butt_matheria = ("🤘MATHERIA🤘")
     metal_kb = ReplyKeyboardMarkup(resize_keyboard=True)
     metal_kb.add(butt_meshuggah).add(butt_matheria).add(butt_cancel)

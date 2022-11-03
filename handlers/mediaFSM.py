@@ -4,6 +4,8 @@ from aiogram.dispatcher.filters import Text
 from aiogram import types, Dispatcher
 from keyboards import get_main_kb, get_genre_kb, get_metal_songs, get_fusion_songs
 from keyboards.kb_main import get_main_kb
+from media_db import sqlite
+from aiogram.utils.exceptions import BadRequest
 
 
 class FSMMedia(StatesGroup):
@@ -46,9 +48,12 @@ async def select_song(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data["song"] = message.text
     await FSMMedia.next()
-    await message.answer("Here we go!", reply_markup=get_main_kb())
     # send video method calling here!
-    await message.answer(str(data))
+    try:
+        await message.answer_video(sqlite.get_video(data["song"]), reply_markup=get_main_kb())
+        await message.answer("Here we go!")
+    except (BadRequest, TypeError):
+        await message.answer("There is no video yet 😢", reply_markup=get_main_kb())
     await state.finish()
 
 
