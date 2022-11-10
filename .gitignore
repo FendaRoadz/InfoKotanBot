@@ -4,3 +4,4 @@ __pycache__
 mediafiles
 media_db/kotan_media.db
 kotan_media.db
+kotan_media.db-journal

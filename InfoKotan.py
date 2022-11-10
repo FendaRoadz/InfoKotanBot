@@ -1,9 +1,8 @@
-from multiprocessing.managers import DictProxy
 from aiogram.utils import executor
 from aiogram import types
 import logging
 from bot_creation import dp
-from handlers import info_hndlr, mediaFSM, command_hndlr, tmp_handler
+from handlers import info_hndlr, mediaFSM, command_hndlr, tmp_handler, admin
 from media_db import sqlite
 
 logging.basicConfig(level=logging.INFO)
@@ -16,6 +15,8 @@ command_hndlr.register_command_start(dp)
 info_hndlr.register_command_info(dp) 
 mediaFSM.register_command_FSM(dp)
 tmp_handler.register_tmp_placeholder(dp)
+admin.register_command_admin(dp)
+
 
 @dp.message_handler()
 async def empty_handler(message: types.Message):

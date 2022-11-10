@@ -31,8 +31,6 @@ async def cancel_handler(message: types.Message, state=FSMContext):
         return
     await state.finish()
     await message.answer("Cancelled\nPlease enter a command", reply_markup=get_main_kb())
-# @dp.message_handler(state=FSMMedia.genre)
-
 
 async def select_genre(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
