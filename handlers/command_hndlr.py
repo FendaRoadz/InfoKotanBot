@@ -1,5 +1,5 @@
 from aiogram import types, Dispatcher
-from keyboards import get_main_kb, kb_inline
+from keyboards.kb_main import get_main_kb
 from aiogram.dispatcher.filters import Text
 from bot_creation import mail
 

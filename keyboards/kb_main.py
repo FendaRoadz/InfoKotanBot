@@ -10,6 +10,22 @@ def get_main_kb():
     main_kb.add(butt_start).add(butt_media).add(butt_info)
     return main_kb
 
+def get_which_instrument_kb():
+    butt_bass = KeyboardButton("🎸BASS🎸")
+    butt_synth = KeyboardButton("🎹KEYS🎹")
+    butt_guitar = KeyboardButton("🎸GUITAR🎸")
+    butt_techno_dj = KeyboardButton("📀TECHNO📀")
+    what_instrument_kb = ReplyKeyboardMarkup(resize_keyboard=True)
+    what_instrument_kb.row(butt_bass, butt_guitar).row(butt_synth, butt_techno_dj).add(butt_cancel)
+    return what_instrument_kb
+
+def get_yes_no_kb():
+    butt_yes = KeyboardButton("✔️YES✔️")
+    butt_no = KeyboardButton("🚫NO🚫")
+    yes_no_kb = ReplyKeyboardMarkup(resize_keyboard=True)
+    yes_no_kb.row(butt_yes, butt_no).add(butt_cancel)
+    return yes_no_kb
+    
 def get_genre_kb():
 
     butt_metal = KeyboardButton("🎸METAL🎸")
